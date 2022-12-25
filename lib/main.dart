@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/home_page.dart';
+import 'package:flutter_catalog/pages/home_page.dart';
+import 'package:flutter_catalog/pages/login_page.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -10,17 +11,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int days = 30; // integer leny ke liye means without pointing values
-    String name =
-        "lahore"; // combine alphabets just like name addresss city etc
-    bool ismale = true; // true or false ke liye use krte h
-    double pi = 3.14; // for pointing values
-    num temp =
-        30.5; // pointing aur none pointing values dono ke liye use krte hn
-    var day =
-        "tuesday"; //var means variable iska mtlb h is mn koi bhi value asakti h aur compiler decide krta h
     return MaterialApp(
-      home: HomePage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.green),
+      darkTheme: ThemeData(
+        brightness: Brightness.light,
+      ),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/Login": (context) => LoginPage()
+      },
     );
   }
 }
